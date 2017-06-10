@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Multipurpose Twitter Bootstrap 3 template
 
 **mPurpose** is a free multipurpose Twitter Bootstrap 3 template by [http://www.dragdropsite.com](http://www.dragdropsite.com)
@@ -700,3 +701,6 @@ More information and configuration options could be found on bxslider website
   * [famfamfam.com](http://www.famfamfam.com/) - for flag icons 
   * [codrops](http://tympanus.net/codrops) - for Mega Dropdown Menu
   * [Ahmedeabbas](http://dribbble.com/Ahmedeabbas) - for freebie Polygon Backgrounds
+=======
+# bookstore
+>>>>>>> 676b2882b4ca51792240bed13d505b1822082823
