@@ -1,4 +1,3 @@
-<?php include __DIR__ . '/templates/nav.php' ?>
 
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
@@ -162,5 +161,3 @@
 	    		</div>
 			</div>
 		</div>
-
-<?php include __DIR__ . '/templates/footer.php' ?>

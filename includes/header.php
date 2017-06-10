@@ -45,7 +45,7 @@
 									</ul>
 								</div>
 							</li>
-			        		<li><a href="login.php">Inloggen</a></li>
+			        		<li><a href="<?= url('login') ?>">Inloggen</a></li>
 			        	</ul>
 					</div>
 		        </div>

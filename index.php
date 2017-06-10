@@ -31,5 +31,7 @@ if (isset($_GET[PAGE_KEY])) {
 
 if(file_exists($page))
 	require_once($page);
+else
+	die('Pagina niet gevonden');
 
 require_once(__DIR__ . '/includes/footer.php');

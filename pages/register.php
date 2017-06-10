@@ -1,13 +1,3 @@
-<?php include __DIR__ . '/includes/messages.php' ;
-
-if(isset($_POST['register'])) {
-}
-
-?>
-
-<?php include __DIR__ . '/templates/nav.php' ?>
-
-        <!-- Page Title -->
 		<div class="section section-breadcrumbs">
 			<div class="container">
 				<div class="row">
@@ -18,8 +8,6 @@ if(isset($_POST['register'])) {
 			</div>
 		</div>
 
-		<?php include __DIR__ . '/templates/messages.php' ?>
-        
         <div class="section">
 	    	<div class="container">
 				<div class="row">
@@ -48,5 +36,3 @@ if(isset($_POST['register'])) {
 				</div>
 			</div>
 		</div>
-
-<?php include __DIR__ . '/templates/footer.php' ?>

@@ -1,4 +1,3 @@
-<?php include __DIR__ . '/templates/nav.php'; ?>
 		<div class="section section-breadcrumbs">
 			<div class="container">
 				<div class="row">
@@ -24,14 +23,15 @@
 									<input class="form-control" id="login-password" type="password" placeholder="Wachtwoord">
 								</div>
 								<div class="form-group">
-									<a href="page-password-reset.html" class="forgot-password">Forgot password?</a>
+									<a href="<?= url('register') ?>" class="forgot-password">Nog geen account?</a>
 									<button type="submit" class="btn pull-right">Inloggen</button>
 									<div class="clearfix"></div>
 								</div>
+
+								<a href="page-password-reset.html" style="margin-top:20px;" class="forgot-password pull-right">Wachtwoord vergeten?</a>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-<?php include __DIR__ . '/templates/footer.php'; ?>
