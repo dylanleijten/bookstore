@@ -45,18 +45,18 @@
 									</ul>
 								</div>
 							</li>
-			        		<li><a href="page-login.html">Login</a></li>
+			        		<li><a href="login.php">Inloggen</a></li>
 			        	</ul>
 					</div>
 		        </div>
 		        <nav id="mainmenu" class="mainmenu">
 					<ul>
-						<li class="logo-wrapper"><a href="index.html"><img src="img/mPurpose-logo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+						<li class="logo-wrapper"><a href="<?= url('index') ?>"><h3>BookStore</h3></li>
 						<li>
-							<a href="index.html">Home</a>
+							<a href="<?= url('index') ?>">Home</a>
 						</li>
 						<li>
-							<a href="features.html">Features</a>
+							<a href="<?= url('products') ?>">Producten</a>
 						</li>
 						<li class="has-submenu active">
 							<a href="#">Pages +</a>

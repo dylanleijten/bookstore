@@ -1,5 +1,3 @@
-<?php include __DIR__ . '/templates/nav.php' ?>
-
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
 			<div class="container">
@@ -327,6 +325,3 @@
 				</div>
 			</div>
 	    </div>
-
-	    <!-- Footer -->
-<?php include __DIR__ . '/templates/footer.php' ?>

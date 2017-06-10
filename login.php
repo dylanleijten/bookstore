@@ -16,19 +16,16 @@
 						<div class="basic-login">
 							<form role="form" role="form">
 								<div class="form-group">
-		        				 	<label for="login-username"><i class="icon-user"></i> <b>Username or Email</b></label>
-									<input class="form-control" id="login-username" type="text" placeholder="">
+		        				 	<label for="login-username"><i class="icon-user"></i> <b>Email</b></label>
+									<input class="form-control" id="login-username" type="text" placeholder="Email">
 								</div>
 								<div class="form-group">
-		        				 	<label for="login-password"><i class="icon-lock"></i> <b>Password</b></label>
-									<input class="form-control" id="login-password" type="password" placeholder="">
+		        				 	<label for="login-password"><i class="icon-lock"></i> <b>Wachtwoord</b></label>
+									<input class="form-control" id="login-password" type="password" placeholder="Wachtwoord">
 								</div>
 								<div class="form-group">
-									<label class="checkbox">
-										<input type="checkbox"> Remember me
-									</label>
 									<a href="page-password-reset.html" class="forgot-password">Forgot password?</a>
-									<button type="submit" class="btn pull-right">Login</button>
+									<button type="submit" class="btn pull-right">Inloggen</button>
 									<div class="clearfix"></div>
 								</div>
 							</form>
