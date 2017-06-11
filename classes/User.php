@@ -1,10 +1,12 @@
 <?php
 
+class User {
 
-function login() {
+    private $db;
 
-}
-
-function register() {
+    public function __construct(Db $db)
+    {
+        $this->db = $db;
+    }
 
 }
