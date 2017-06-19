@@ -34,7 +34,7 @@
 	        	<div class="menuextras">
 					<div class="extras">
 						<ul>
-							<li class="shopping-cart-items"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> <a href="page-shopping-cart.html"><b>3 items</b></a></li>
+							<li class="shopping-cart-items"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> <a href="<?= url('shopping-cart') ?>"><b><?= User::get()->cart->count() ?> product(en)</b></a></li>
 							<li>
 								<div class="dropdown choose-country">
 							<div id="google_translate_element"></div><script type="text/javascript">

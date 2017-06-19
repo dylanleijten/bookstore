@@ -1,4 +1,10 @@
+<?php
 
+$productId = $_GET['product'];
+
+$product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($productId)->fetch();
+
+?>
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
 			<div class="container">
@@ -22,7 +28,7 @@
 	    			<!-- End Product Image -->
 	    			<!-- Product Summary & Options -->
 	    			<div class="col-sm-6 product-details">
-	    				<h4>LOREM IPSUM DOLOR</h4>
+	    				<h4><?= $product->title ?></h4>
 	    				<div class="price">
 							<span class="price-was">$959.99</span> $999.99
 						</div>

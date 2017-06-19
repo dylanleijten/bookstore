@@ -44,6 +44,12 @@ class DB {
         return $this->query->execute();
     }
 
+    public function count()
+    {
+        $this->exec();
+        return $this->query->rowCount();
+    }
+
     public function bind()
     {
         $values = func_get_args();

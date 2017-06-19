@@ -2,6 +2,8 @@
 
 $products = DB::query('SELECT * FROM product')->fetchAll();
 
+
+
 ?>
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
@@ -23,7 +25,7 @@ $products = DB::query('SELECT * FROM product')->fetchAll();
 						<div class="shop-item">
 							<!-- Product Image -->
 							<div class="image">
-								<a href="<?= url('product') ?>"><img src="img/product1.jpg" alt="Item Name"></a>
+								<a href="<?= url('product') ?>&product=<?=$product->product_id?>"><img src="img/product1.jpg" alt="Item Name"></a>
 							</div>
 							<!-- Product Title -->
 							<div class="title">
@@ -39,7 +41,7 @@ $products = DB::query('SELECT * FROM product')->fetchAll();
 							</div>
 							<!-- Add to Cart Button -->
 							<div class="actions">
-								<a href="<?= url('product') ?>" class="btn"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>
+								<a href="<?= url('addtocart') ?>&product=<?=$product->product_id?>" class="btn"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>
 							</div>
 						</div>
 						<!-- End Product -->

@@ -1,3 +1,6 @@
+<?php
+$cart = User::get()->cart;
+?>
 <!-- Page Title -->
 <div class="section section-breadcrumbs">
     <div class="container">
@@ -21,6 +24,10 @@
             </div>
         </div>
         <div class="row">
+            <?php if(!$cart->count()): ?>
+                <h1>Je hebt nog geen producten in je winkelwagen.</h1>
+            <?php else: ?>
+            <?php foreach($cart->getProducts() as $product): ?>
             <div class="col-md-12">
                 <!-- Shopping Cart Items -->
                 <table class="shopping-cart">
@@ -30,14 +37,14 @@
                         <td class="image"><a href="<?= url("product") ?>"><img src="img/product1.jpg" alt="Item Name"></a></td>
                         <!-- Shopping Cart Item Description & Features -->
                         <td>
-                            <div class="cart-item-title"><a href="<?= url("product") ?>">LOREM IPSUM DOLOR</a></div>
+                            <div class="cart-item-title"><a href="<?= url("product") ?>"><?= $product->title ?></a></div>
                         </td>
                         <!-- Shopping Cart Item Quantity -->
                         <td class="quantity">
                             <input class="form-control input-sm input-micro" type="text" value="1">
                         </td>
                         <!-- Shopping Cart Item Price -->
-                        <td class="price">$999.99</td>
+                        <td class="price">&euro;<?=$product->price?></td>
                         <!-- Shopping Cart Item Actions -->
                         <td class="actions">
                             <a href="#" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -48,20 +55,11 @@
                 </table>
                 <!-- End Shopping Cart Items -->
             </div>
+            <?php endforeach; ?>
+            <?php endif; ?>
+
         </div>
         <div class="row">
-            <!-- Promotion Code -->
-            <div class="col-md-4  col-md-offset-0 col-sm-6 col-sm-offset-6">
-                <div class="cart-promo-code">
-                    <h6><i class="glyphicon glyphicon-gift"></i> Have a promotion code?</h6>
-                    <div class="input-group">
-                        <input class="form-control input-sm" id="appendedInputButton" type="text" value="">
-                        <span class="input-group-btn">
-									<button class="btn btn-sm btn-grey" type="button">Apply</button>
-								</span>
-                    </div>
-                </div>
-            </div>
             <!-- Shipment Options -->
             <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-6">
                 <div class="cart-shippment-options">
@@ -79,16 +77,12 @@
             <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-6">
                 <table class="cart-totals">
                     <tr>
-                        <td><b>Shipping</b></td>
-                        <td>Free</td>
-                    </tr>
-                    <tr>
-                        <td><b>Discount</b></td>
-                        <td>- $18.00</td>
+                        <td><b>Verzendkosten</b></td>
+                        <td>Gratis</td>
                     </tr>
                     <tr class="cart-grand-total">
-                        <td><b>Total</b></td>
-                        <td><b>$163.55</b></td>
+                        <td><b>Totaal</b></td>
+                        <td><b>&euro;<?= $cart->sum() ?></b></td>
                     </tr>
                 </table>
                 <!-- Action Buttons -->
