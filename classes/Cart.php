@@ -41,6 +41,9 @@ class Cart {
 
         $sum = 0;
 
+        if(!Session::exists('products'))
+            return $sum;
+
         foreach(Session::get('products') as $product) {
             $sum += $product->price;
         }
