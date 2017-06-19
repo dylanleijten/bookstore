@@ -6,7 +6,7 @@ $cart = User::get()->cart;
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Shopping Cart</h1>
+                <h1>Winkelwagen</h1>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@ $cart = User::get()->cart;
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="#" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> UPDATE</a>
-                    <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> CHECK OUT</a>
+                    <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ $cart = User::get()->cart;
                     <!-- Shopping Cart Item -->
                     <tr>
                         <!-- Shopping Cart Item Image -->
-                        <td class="image"><a href="<?= url("product") ?>"><img src="img/product1.jpg" alt="Item Name"></a></td>
+                        <td class="image"><a href="<?= url("product") ?>"><img src="img/<?= $product->img_link ?>.jpg" alt="Item Name"></a></td>
                         <!-- Shopping Cart Item Description & Features -->
                         <td>
                             <div class="cart-item-title"><a href="<?= url("product") ?>"><?= $product->title ?></a></div>
@@ -66,8 +66,8 @@ $cart = User::get()->cart;
                     <h6><i class="glyphicon glyphicon-plane"></i> Shippment options</h6>
                     <div class="input-append">
                         <select class="form-control input-sm">
-                            <option value="1">Standard - FREE</option>
-                            <option value="2">Next day delivery - $10.00</option>
+                            <option value="1">Standaard - Gratis</option>
+                            <option value="2">Wereldwijd - &euro;10.00</option>
                         </select>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ $cart = User::get()->cart;
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="#" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> UPDATE</a>
-                    <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> CHECK OUT</a>
+                    <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
         </div>
