@@ -34,7 +34,7 @@ $cart = User::get()->cart;
                     <!-- Shopping Cart Item -->
                     <tr>
                         <!-- Shopping Cart Item Image -->
-                        <td class="image"><a href="<?= url("product") ?>"><img src="<?= $product->img_link ?>" alt="Item Name"></a></td>
+                        <td class="image"><a href="<?= ?>"><img src="<?= $product->img_link ?>" alt="Item Name"></a></td>
                         <!-- Shopping Cart Item Description & Features -->
                         <td>
                             <div class="cart-item-title"><a href="<?= url("product") ?>"><?= $product->title ?></a></div>
