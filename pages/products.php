@@ -33,10 +33,6 @@ $products = DB::query('SELECT * FROM product')->fetchAll();
 							<div class="price">
 								&euro;<?= $product->price ?>
 							</div>
-							<!-- Product Description-->
-							<div class="description">
-								<p></p>
-							</div>
 							<!-- Add to Cart Button -->
 							<div class="actions">
 								<a href="<?= url('addtocart') ?>&product=<?=$product->product_id?>" class="btn"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>

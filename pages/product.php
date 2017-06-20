@@ -34,10 +34,13 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 						</div>
 						<h5>Beknopte info</h5>
 	    				<p>
-	    					Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat massa ornare vitae. Ut fermentum justo vel venenatis eleifend. Fusce id magna eros.
+	    					<?=$product->info?>
 	    				</p>
 						<table class="shop-item-selections">
                             <!-- Quantity -->
+                            <form action="<?= url('addtocart') ?>&product=<?=$product->product_id?>">
+                                <input type="hidden" name="p" value="addtocart">
+                                <input type="hidden" name="product" value="<?= $product->product_id ?>">
                             <tr>
                                 <td><b>Aantal:</b></td>
                                 <td>
@@ -47,10 +50,10 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
                             <!-- Add to Cart Button -->
                             <tr>
                                 <td>
-                                    <a href="<?= url('addtocart') ?>&product=<?=$product->product_id?>" class="btn"><i class="icon-shopping-cart icon-white"></i> Toevoegen</a>
+                                    <button type="submit" class="btn"><i class="icon-shopping-cart icon-white"></i> Toevoegen</button>
                                 </td>
                             </tr>
-
+                            </form>
                         </table>
 	    			</div>
 	    			<!-- End Product Summary & Options -->

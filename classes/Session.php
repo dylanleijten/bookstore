@@ -23,6 +23,10 @@ class Session {
 
     }
 
+    public static function remove($key) {
+        unset($key);
+    }
+
     public static function exists($key) {
         return array_key_exists($key, $_SESSION);
     }

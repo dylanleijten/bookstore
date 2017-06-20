@@ -1,5 +1,6 @@
 <?php
 $cart = User::get()->cart;
+
 ?>
 <!-- Page Title -->
 <div class="section section-breadcrumbs">
@@ -18,7 +19,7 @@ $cart = User::get()->cart;
             <div class="col-md-12">
                 <!-- Action Buttons -->
                 <div class="pull-right">
-                    <a href="#" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> UPDATE</a>
+                    <a href="<?=url('removeall')?>" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> LEEGMAKEN</a>
                     <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
@@ -27,28 +28,28 @@ $cart = User::get()->cart;
             <?php if(!$cart->count()): ?>
                 <h1>Je hebt nog geen producten in je winkelwagen.</h1>
             <?php else: ?>
-            <?php foreach($cart->getProducts() as $product): ?>
+            <?php foreach($cart->getProducts() as $key => $product): ?>
             <div class="col-md-12">
                 <!-- Shopping Cart Items -->
                 <table class="shopping-cart">
                     <!-- Shopping Cart Item -->
                     <tr>
                         <!-- Shopping Cart Item Image -->
-                        <td class="image"><a href="<?= ?>"><img src="<?= $product->img_link ?>" alt="Item Name"></a></td>
+                        <td class="image"><a href="<?= url('product') ?>&product=<?=$product->product_id?>"><img src="<?= $product->product_img ?>" alt="Item Name"></a></td>
                         <!-- Shopping Cart Item Description & Features -->
                         <td>
-                            <div class="cart-item-title"><a href="<?= url("product") ?>"><?= $product->title ?></a></div>
+                            <div class="cart-item-title"><a href="<?= url('product') ?>&product=<?=$product->product_id?>"><?=$product->title?></a></div>
                         </td>
                         <!-- Shopping Cart Item Quantity -->
                         <td class="quantity">
-                            <input class="form-control input-sm input-micro" type="text" value="1">
+                            <input class="form-control input-sm input-micro" type="number" value="<?=$product->amount?>">
                         </td>
                         <!-- Shopping Cart Item Price -->
-                        <td class="price">&euro;<?=$product->price?></td>
+                        <td class="price">&euro;<?=($product->price)*($product->amount)?></td>
                         <!-- Shopping Cart Item Actions -->
                         <td class="actions">
-                            <a href="#" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="<?= url('updatecart') ?>&productIndex=<?=$key?>&hoeveelheid=<?=$product->amount?>" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="<?= url('removefromcart') ?>&productIndex=<?=$key?>" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-trash"></i></a>
                         </td>
                     </tr>
                     <!-- End Shopping Cart Item -->
@@ -63,7 +64,7 @@ $cart = User::get()->cart;
             <!-- Shipment Options -->
             <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-6">
                 <div class="cart-shippment-options">
-                    <h6><i class="glyphicon glyphicon-plane"></i> Shippment options</h6>
+                    <h6><i class="glyphicon glyphicon-plane"></i> Verzendkosten</h6>
                     <div class="input-append">
                         <select class="form-control input-sm">
                             <option value="1">Standaard - Gratis</option>
@@ -87,7 +88,7 @@ $cart = User::get()->cart;
                 </table>
                 <!-- Action Buttons -->
                 <div class="pull-right">
-                    <a href="#" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> UPDATE</a>
+                    <a href="<?= url('removeall')?>" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> LEEGMAKEN</a>
                     <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
