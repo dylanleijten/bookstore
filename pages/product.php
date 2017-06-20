@@ -22,7 +22,7 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 	    			<!-- Product Image & Available Colors -->
 	    			<div class="col-sm-6">
 	    				<div class="product-image-large">
-	    					<img src="img/product3.jpg" alt="Item Name">
+	    					<img src="<?= $product->img_link ?>" alt="Item Name">
 	    				</div>
 	    			</div>
 	    			<!-- End Product Image -->
@@ -30,7 +30,7 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 	    			<div class="col-sm-6 product-details">
 	    				<h4><?= $product->title ?></h4>
 	    				<div class="price">
-							<span class="price-was">$959.99</span> $999.99
+							&euro; <?= $product->price ?>
 						</div>
 						<h5>Beknopte info</h5>
 	    				<p>
@@ -41,7 +41,7 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
                             <!-- Product Nummer -->
                             <tr>
                                 <td>
-                                    <input type="hidden" name="productnummer" value="1">  <!-- 1 voor test -->
+                                    <input type="hidden" name="productnummer" value="1">
                                 </td>
                             </tr>
                             <!-- Quantity -->
@@ -88,10 +88,6 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 										<li>Aenean nisi nibh, imperdiet sit amet eleifend et, gravida vitae sem.</li>
 										<li>Donec quis nisi congue, ultricies massa ut, bibendum velit.</li>
 									</ul>
-									<h4>Usage Information</h4>
-									<p>
-										Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus. Phasellus et est quis diam iaculis fringilla id nec sapien. Sed tempor ornare felis, non vulputate dolor. Etiam ornare diam vitae ligula malesuada tempor. Vestibulum nec odio vel libero ullamcorper euismod et in sapien. Suspendisse potenti.
-									</p>
 								</div>
 								<!-- Tab Content (Reviews) -->
 								<div class="tab-pane" id="tab2">

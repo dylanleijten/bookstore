@@ -25,7 +25,7 @@ $products = DB::query('SELECT * FROM product')->fetchAll();
 						<div class="shop-item">
 							<!-- Product Image -->
 							<div class="image">
-								<a href="<?= url('product') ?>&product=<?=$product->product_id?>"><img src="img/product1.jpg" alt="Item Name"></a>
+								<a href="<?= url('product') ?>&product=<?=$product->product_id?>"><img src="<?=$product->product_img?>" alt="Item Name"></a>
 							</div>
 							<!-- Product Title -->
 							<div class="title">
