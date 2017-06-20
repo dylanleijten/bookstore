@@ -4,6 +4,8 @@ $productId = $_GET['product'];
 
 $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($productId)->fetch();
 
+$reviews = DB::query('SELECT * FROM beoordeling WHERE product_product_id = ?')->bind($product->product_id)->fetchAll();
+
 ?>
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
@@ -68,6 +70,24 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 								<!-- Tab Content (Reviews) -->
 								<div class="tab-pane" id="tab1">
                                     <h4>Wat zeggen onze gebruikers?</h4>
+                                    <p><?php foreach($reviews as $review): ?>
+                                         <p>Bericht:<br><?= $review->review ?> </p>
+                                    <?php endforeach; ?></p>
+                                    
+                                    
+                                    <form action="product.php" method="post" accept-charset="utf-8">
+                                <fieldset>	
+                                <p><label for="rating">beoordeling</label><input type="radio" name="rating"
+                                  value="5" /> 5 <input type="radio" name="rating" value="4" /> 4
+                                  <input type="radio" name="rating" value="3" /> 3 <input type="radio"
+                                  name="rating" value="2" /> 2 <input type="radio" name="rating" value="1" /> 1</p>
+                                <p><label for="review">Bericht</label><textarea name="review" rows="8" cols="40">
+                                   </textarea></p>
+                                <p><input type="submit" value="Plaats bericht"></p>
+                                <input type="hidden" name="product_type" value="actual_product_type" id="product_type">
+                                <input type="hidden" name="product_id" value="actual_product_id" id="product_id">
+                            </fieldset>
+                            </form>
 								</div>
 							</div>
 						</div>

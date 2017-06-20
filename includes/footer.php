@@ -2,29 +2,16 @@
 	    <div class="footer">
 	    	<div class="container">
 		    	<div class="row">
-		    		<div class="col-footer col-md-3 col-xs-6">
-		    			<h3>Ons meest recente werk</h3>
-		    			<div class="portfolio-item">
-							<div class="portfolio-image">
-								<a href="page-portfolio-item.html"><img src="layout/img/portfolio.jpg" alt="Project Name"></a>
-							</div>
-						</div>
-		    		</div>
-		    		<div class="col-footer col-md-3 col-xs-6">
-		    			<h3>Navigatie</h3>
-		    			<ul class="no-list-style footer-navigate-section">
-                            <li><a href="<?=url('index')?>">Home</a></li>
-                            <li><a href="<?=url('products')?>">Ons Aanbod</a></li>
-		    				<li><a href="page-faq.html">FAQ</a></li>
-		    			</ul>
-		    		</div>
+
+
 		    		
 		    		<div class="col-footer col-md-4 col-xs-6">
 		    			<h3>Contacts</h3>
 		    			<p class="contact-us-details">
-	        				<b>Address:</b> Hogeschoollaan 1, Breda, Nederland<br/>
-	        				<b>Phone:</b> +31 123 654321<br/>
-	        				<b>Email:</b> <a href="mailto:dleijten@avans.nl">dleijten@avans.nl</a>
+	        				<b>Address:</b> Hogeschoollaan 1, Breda<br/>
+	        				<b>Phone:</b> +44 123 654321<br/>
+	        				<b>Fax:</b> +44 123 654321<br/>
+	        				<b>Email:</b> <a href="mailto:djamleij@avans.nl">Bookstore@avans.nl</a>
 	        			</p>
 		    		</div>
 		    	</div>
