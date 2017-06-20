@@ -8,3 +8,5 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 
 
 $cart->addProduct($product);
+
+header('Location: '.url('shopping-cart'));
