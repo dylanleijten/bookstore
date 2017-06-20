@@ -1,3 +1,12 @@
+<?php
+
+
+if(isset($_POST['login'])) {
+	echo '<h1>hja</h1>';
+}
+
+?>
+
 		<div class="section section-breadcrumbs">
 			<div class="container">
 				<div class="row">
@@ -13,7 +22,7 @@
 				<div class="row">
 					<div class="col-sm-12 col-md-5 col-md-push-4">
 						<div class="basic-login">
-							<form role="form" role="form">
+							<form role="form" role="form" action="" method="post">
 								<div class="form-group">
 		        				 	<label for="login-username"><i class="icon-user"></i> <b>Email</b></label>
 									<input class="form-control" id="login-username" type="text" placeholder="Email">
@@ -24,7 +33,7 @@
 								</div>
 								<div class="form-group">
 									<a href="<?= url('register') ?>" class="forgot-password">Nog geen account?</a>
-									<button type="submit" class="btn pull-right">Inloggen</button>
+									<button type="submit" name="login" class="btn pull-right">Inloggen</button>
 									<div class="clearfix"></div>
 								</div>
 
