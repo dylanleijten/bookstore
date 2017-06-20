@@ -2,8 +2,6 @@
 
 $products = DB::query('SELECT * FROM product')->fetchAll();
 
-
-
 ?>
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">

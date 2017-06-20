@@ -22,7 +22,7 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 	    			<!-- Product Image & Available Colors -->
 	    			<div class="col-sm-6">
 	    				<div class="product-image-large">
-	    					<img src="<?= $product->img_link ?>" alt="Item Name">
+	    					<img src="<?= $product->product_img ?>" alt="Item Name">
 	    				</div>
 	    			</div>
 	    			<!-- End Product Image -->
@@ -36,14 +36,7 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 	    				<p>
 	    					Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat massa ornare vitae. Ut fermentum justo vel venenatis eleifend. Fusce id magna eros.
 	    				</p>
-                        <form action="add.php" method="post">
 						<table class="shop-item-selections">
-                            <!-- Product Nummer -->
-                            <tr>
-                                <td>
-                                    <input type="hidden" name="productnummer" value="1">
-                                </td>
-                            </tr>
                             <!-- Quantity -->
                             <tr>
                                 <td><b>Aantal:</b></td>
@@ -53,14 +46,12 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
                             </tr>
                             <!-- Add to Cart Button -->
                             <tr>
-                                <td>&nbsp;</td>
                                 <td>
-                                    <input type="submit" value="Toevoegen">
+                                    <a href="<?= url('addtocart') ?>&product=<?=$product->product_id?>" class="btn"><i class="icon-shopping-cart icon-white"></i> Toevoegen</a>
                                 </td>
                             </tr>
 
                         </table>
-                        </form>
 	    			</div>
 	    			<!-- End Product Summary & Options -->
 	    			
@@ -69,28 +60,10 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 	    				<div class="tabbable">
 	    					<!-- Tabs -->
 							<ul class="nav nav-tabs product-details-nav">
-								<li class="active"><a href="#tab1" data-toggle="tab">Beschrijving</a></li>
-								<li><a href="#tab2" data-toggle="tab">Reviews?</a></li>
+								<li class="active"><a href="#tab1" data-toggle="tab">Reviews</a></li>
 							</ul>
-							<!-- Tab Content (Full Description) -->
-							<div class="tab-content product-detail-info">
-								<div class="tab-pane active" id="tab1">
-									<h4>Product Description</h4>
-									<p>
-										Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus. Phasellus et est quis diam iaculis fringilla id nec sapien. Sed tempor ornare felis, non vulputate dolor. Etiam ornare diam vitae ligula malesuada tempor. Vestibulum nec odio vel libero ullamcorper euismod et in sapien. Suspendisse potenti.
-									</p>
-									<h4>Product Highlights</h4>
-									<ul>
-										<li>Nullam dictum augue nec iaculis rhoncus. Aenean lobortis fringilla orci, vitae varius purus eleifend vitae.</li>
-										<li>Nunc ornare, dolor a ultrices ultricies, magna dolor convallis enim, sed volutpat quam sem sed tellus.</li>
-										<li>Aliquam malesuada cursus urna a rutrum. Ut ultricies facilisis suscipit.</li>
-										<li>Duis a magna iaculis, aliquam metus in, luctus eros.</li>
-										<li>Aenean nisi nibh, imperdiet sit amet eleifend et, gravida vitae sem.</li>
-										<li>Donec quis nisi congue, ultricies massa ut, bibendum velit.</li>
-									</ul>
-								</div>
 								<!-- Tab Content (Reviews) -->
-								<div class="tab-pane" id="tab2">
+								<div class="tab-pane" id="tab1">
                                     <h4>Wat zeggen onze gebruikers?</h4>
 								</div>
 							</div>
