@@ -2,7 +2,7 @@
  // Database connection
  $dsn 		= 'mysql:host=localhost;dbname=books_db';
  $username	= 'root';
- $password	= '';
+ $password	= 'myadminpassword321@#';
  $option = array(
  			PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
  	);
