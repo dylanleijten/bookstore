@@ -30,6 +30,6 @@ if(isset($_SESSION['username'])) {
 
 	include $tpl . 'footer.inc.php';
 } else {
-	header(Location: 'index.php');
+	header('Location: index.php');
 	exit();
 }

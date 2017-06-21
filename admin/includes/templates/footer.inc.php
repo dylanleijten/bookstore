@@ -4,6 +4,6 @@
 		<!-- Bootstrap JavaScript -->
 		<script src="<?php echo $js; ?>bootstrap.min.js"></script>
 		<!-- Backend js -->
-		<script src="<?php echo $js; ?>backend.js"></script>
+		<script src="<?php echo $js; ?>admin.js"></script>
 	</body>
 </html>
