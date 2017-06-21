@@ -80,7 +80,7 @@
 					<div class="testimonial col-md-4 col-sm-6">
 						<!-- Author Photo -->
 						<div class="author-photo">
-							<img src="layout/img/user1.jpg" alt="Author 1">
+							<img src="layout/img/user7.jpg" alt="Author 1">
 						</div>
 						<div class="testimonial-bubble">
 							<blockquote>
@@ -90,7 +90,7 @@
                         		</p>
                         		<!-- Author Info -->
                         		<cite class="author-info">
-                        			- Sjonnie Batsbak,<br>Bestelde de reeks van Harry Potter
+                        			- Maurice van Haperen,<br>Gaf Bookstore minimaal een 8,5
                         		</cite>
                         	</blockquote>
                         	<div class="sprite arrow-speech-bubble"></div>
