@@ -99,15 +99,15 @@
                     <!-- End Testimonial -->
                     <div class="testimonial col-md-4 col-sm-6">
 						<div class="author-photo">
-							<img src="layout/img/user5.jpg" alt="Author 2">
+							<img src="layout/img/user8.jpg" alt="Author 2">
 						</div>
 						<div class="testimonial-bubble">
 							<blockquote>
 								<p class="quote">
-		                            "Door Bookstore ben ik elke week weer voorzien van een nieuw, spannend boek. Door de persoonlijke service en de snelle bezorging!"
+		                            "Ik hou van de kwaliteit boeken die Bookstore levert. Ik ben heel blij met de bestellingen. De boeken ruiken ook zo lekker!!"
                         		</p>
                         		<cite class="author-info">
-                        			- Sieneke van Breda,<br>Vaste klant bij Bookstore
+                        			- Dylan Leijten,<br>Doet net alsof hij kan lezen
                         		</cite>
                         	</blockquote>
                         	<div class="sprite arrow-speech-bubble"></div>
@@ -115,7 +115,7 @@
                     </div>
 					<div class="testimonial col-md-4 col-sm-6">
 						<div class="author-photo">
-							<img src="layout/img/user2.jpg" alt="Author 3">
+							<img src="layout/img/user9.jpg" alt="Author 3">
 						</div>
 						<div class="testimonial-bubble">
 							<blockquote>
@@ -123,7 +123,7 @@
 		                            "Ik hou heel erg van Strip(pen)boeken, hentai, manga het maakt me niet uit. Bookstore heeft het!"
                         		</p>
                         		<cite class="author-info">
-                        			- Cha-Nay-Nay de Vries,<br>Houdt van Hentai en Manga
+                        			- Ralph Comanne,<br>Houdt van Hentai en Manga
                         		</cite>
                         	</blockquote>
                         	<div class="sprite arrow-speech-bubble"></div>
