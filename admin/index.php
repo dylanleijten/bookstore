@@ -1,6 +1,7 @@
 <?php
 	session_start(); 
-	//$pageTitle = 'Login';
+	$noNavbar = '';
+	$pageTitle = 'Login';
 	if (isset($_SESSION['username'])) {
 		header('Location: dashboard.php'); // Redirect to dashboard.php
 	}
