@@ -85,7 +85,7 @@
 											<li><a href="<?= url('register') ?>">Login</a></li>
 											<li><a href="<?= url('register') ?>">Register</a></li>
 											<li><a href="page-password-reset.html">Password Reset</a></li>
-											<li><a href="page-terms-privacy.html">Terms & Privacy</a></li>
+											<li><a href="<?=url('privacy_verzend')?>">Privacy & Verzendvoorwaarden</a></li>
 										</ul>
 									</div>
 								</div><!-- /mainmenu-submenu-inner -->
