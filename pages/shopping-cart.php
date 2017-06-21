@@ -1,6 +1,11 @@
 <?php
 $cart = User::get()->cart;
 
+if(isset($_POST['keuze'])){
+    $selected = $_POST['verzendkeuze'];
+} else {
+    $selected = "0";
+}
 ?>
 <!-- Page Title -->
 <div class="section section-breadcrumbs">
@@ -20,7 +25,7 @@ $cart = User::get()->cart;
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="<?=url('removeall')?>" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> LEEGMAKEN</a>
-                    <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
+                    <a href="<?=url('checkout')?>" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
         </div>
@@ -42,7 +47,7 @@ $cart = User::get()->cart;
                         </td>
                         <!-- Shopping Cart Item Quantity -->
                         <td class="quantity">
-                            <input class="form-control input-sm input-micro" type="number" value="<?=$product->amount?>">
+                            <input name="aantal" class="form-control input-sm input-micro" type="number" value="<?=$product->amount?>">
                         </td>
                         <!-- Shopping Cart Item Price -->
                         <td class="price">&euro;<?=($product->price)*($product->amount)?></td>
@@ -66,10 +71,13 @@ $cart = User::get()->cart;
                 <div class="cart-shippment-options">
                     <h6><i class="glyphicon glyphicon-plane"></i> Verzendkosten</h6>
                     <div class="input-append">
-                        <select class="form-control input-sm">
-                            <option value="1">Standaard - Gratis</option>
-                            <option value="2">Wereldwijd - &euro;10.00</option>
-                        </select>
+                        <form action="" method="post">
+                            <select name="verzendkeuze" class="form-control input-sm">
+                                <option value="0">Standaard - Gratis</option>
+                                <option value="10.00">Wereldwijd - &euro;10.00</option>
+                            </select>
+                            <input type="submit" name="keuze" value="Kies Verzendoptie">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -79,7 +87,9 @@ $cart = User::get()->cart;
                 <table class="cart-totals">
                     <tr>
                         <td><b>Verzendkosten</b></td>
-                        <td>Gratis</td>
+                        <td>
+                            <?= '&euro;'.$selected ?>
+                        </td>
                     </tr>
                     <tr class="cart-grand-total">
                         <td><b>Totaal</b></td>
@@ -89,7 +99,7 @@ $cart = User::get()->cart;
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="<?= url('removeall')?>" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> LEEGMAKEN</a>
-                    <a href="#" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
+                    <a href="<?= url('checkout')?>" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
         </div>

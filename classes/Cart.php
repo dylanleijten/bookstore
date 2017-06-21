@@ -42,7 +42,11 @@ class Cart {
 
     public function sum() {
 
+        $selected = 0;
         $sum = 0;
+        if(isset($_POST['keuze'])){
+            $selected = $_POST['verzendkeuze'];
+        }
 
         if(!Session::exists('products'))
             return $sum;
@@ -51,7 +55,7 @@ class Cart {
             $sum += ($product->price*$product->amount);
         }
 
-        return $sum;
+        return $sum + $selected;
 
     }
 
