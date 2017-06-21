@@ -39,6 +39,9 @@ if(isset($_POST['keuze'])){
                 <table class="shopping-cart">
                     <!-- Shopping Cart Item -->
                     <tr>
+                        <form method="GET" action="index.php">
+                            <input name="p" value="updatecart" type="hidden">
+                            <input type="hidden" value="<?=$key?>" name="productIndex">
                         <!-- Shopping Cart Item Image -->
                         <td class="image"><a href="<?= url('product') ?>&product=<?=$product->product_id?>"><img src="<?= $product->product_img ?>" alt="Item Name"></a></td>
                         <!-- Shopping Cart Item Description & Features -->
@@ -47,15 +50,16 @@ if(isset($_POST['keuze'])){
                         </td>
                         <!-- Shopping Cart Item Quantity -->
                         <td class="quantity">
-                            <input name="aantal" class="form-control input-sm input-micro" type="number" value="<?=$product->amount?>">
+                            <input name="hoeveelheid" class="form-control input-sm input-micro" type="number" value="<?=$product->amount?>">
                         </td>
                         <!-- Shopping Cart Item Price -->
                         <td class="price">&euro;<?=($product->price)*($product->amount)?></td>
                         <!-- Shopping Cart Item Actions -->
                         <td class="actions">
-                            <a href="<?= url('updatecart') ?>&productIndex=<?=$key?>&hoeveelheid=<?=$product->amount?>" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <button type="submit" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-pencil"></i></button>
                             <a href="<?= url('removefromcart') ?>&productIndex=<?=$key?>" class="btn btn-xs btn-grey"><i class="glyphicon glyphicon-trash"></i></a>
                         </td>
+                        </form>
                     </tr>
                     <!-- End Shopping Cart Item -->
                 </table>

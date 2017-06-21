@@ -1,5 +1,7 @@
 <?php
 
+$itemIncremented = false;
+
 $cart = User::get()->cart;
 
 $products = $cart->getProducts();
@@ -10,14 +12,16 @@ $amount = isset($_GET['hoeveelheid']) ? $_GET['hoeveelheid'] : 1;
 
 $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($productId)->fetch();
 
-foreach ($products as $key => $entry) {
-    if($entry->product_id === $product->product_id) {
-        $cart->update($key, $entry);
-    } else {
-        $cart->addProduct($product, $amount);
-    }
+foreach (Session::get('products') as $key => $entry) {
+
+        if($entry->product_id === $product->product_id) {
+            $cart->incrementAmount($key);
+            $itemIncremented = true;
+        }
 }
 
-$cart->addProduct($product, $amount);
+if(!$itemIncremented) {
+    $cart->addProduct($product, $amount);
+}
 
-header('Location: '.url('shopping-cart'));
+redirect(url('shopping-cart'));

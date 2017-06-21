@@ -3,4 +3,4 @@ $cart = User::get()->cart;
 
 $cart->clear();
 
-header('Location:'.url('shopping-cart'));
+redirect(url('shopping-cart'));

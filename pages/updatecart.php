@@ -6,4 +6,4 @@ $amount = $_GET['hoeveelheid'];
 
 $cart->update($productIndex, $amount);
 
-header('Location:'.url('shopping-cart'));
+redirect(url('shopping-cart'));
