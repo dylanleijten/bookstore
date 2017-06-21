@@ -4,7 +4,7 @@
 //index.php?p=producs&order=asc
 
 $sql = $sql = 'SELECT * FROM product';
-$order = $_GET['order'];
+$order = isset($_GET['order']) ? $_GET['order'] : 0;
 if($order === 'title'){
     $sql = 'SELECT * FROM product ORDER BY title';
 } elseif ($order === 'price') {
