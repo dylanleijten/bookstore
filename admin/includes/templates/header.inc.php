@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Login</title>
+		<title><?php getTitle(); ?></title>
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="<?php echo $css; ?>bootstrap.min.css">

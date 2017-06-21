@@ -12,7 +12,7 @@
         </div>
         <div id="app-nav" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#"><?php echo lang('CATEGORIES'); ?></a></li>
+            <li><a href="categories.php"><?php echo lang('CATEGORIES'); ?></a></li>
             <li><a href="#"><?php echo lang('ITEMS'); ?></a></li>
             <li><a href="#"><?php echo lang('ORDERS'); ?></a></li>
             <li><a href="#"><?php echo lang('MEMBERS'); ?></a></li>

@@ -2,6 +2,7 @@
   session_start();
   if (isset($_SESSION['username'])) {
   	$pageTitle = 'Dashboard';
+
   	include 'init.php';
   	
     /*  Start Dashboard Page  */ 
