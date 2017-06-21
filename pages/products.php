@@ -1,24 +1,31 @@
 <?php
 
-if(isset($_POST['sort_title'])) {
-    $sql = 'SELECT * FROM product ORDER BY price';
-} elseif (isset($_POST['sort_price'])) {
+
+//index.php?p=producs&order=asc
+
+$sql = $sql = 'SELECT * FROM product';
+$order = $_GET['order'];
+if($order === 'title'){
     $sql = 'SELECT * FROM product ORDER BY title';
+} elseif ($order === 'price') {
+    $sql = 'SELECT * FROM product ORDER BY price';
 } else {
-    $sql = 'SELECT * FROM product';
+    $sql = $sql = 'SELECT * FROM product';
 }
+
 $products = DB::query($sql)->fetchAll();
 
 ?>
+
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<h1>Ons aanbod</h1>
-                        <form>
-                            <input type="checkbox" name="sort" name="sort_title"><p style="color:#adadad" onclick="changesort(0)">Sorteer op titel</p>
-                            <input type="checkbox" name="sort" name="sort_price"><p style="color:#adadad" onclick="changesort(1)">Sorteer op prijs</p>
+                        <form name="sort_boxes">
+                            <input type="checkbox" name="sort" name="sort_title" onclick="javascript:window.location.href='<?= url('products') ?>&order=title'"><p style="color:#adadad">Sorteer op titel</p>
+                            <input type="checkbox" name="sort" name="sort_price" onclick="javascript:window.location.href='<?= url('products') ?>&order=price'"><p style="color:#adadad">Sorteer op prijs</p>
                         </form>
 					</div>
 				</div>
@@ -72,3 +79,5 @@ $products = DB::query($sql)->fetchAll();
 				</div>
 			</div>
 	    </div>
+
+
