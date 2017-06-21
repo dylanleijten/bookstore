@@ -1,6 +1,13 @@
 <?php
 
-$products = DB::query('SELECT * FROM product')->fetchAll();
+if(isset($_POST['sort_title'])) {
+    $sql = 'SELECT * FROM product ORDER BY price';
+} elseif (isset($_POST['sort_price'])) {
+    $sql = 'SELECT * FROM product ORDER BY title';
+} else {
+    $sql = 'SELECT * FROM product';
+}
+$products = DB::query($sql)->fetchAll();
 
 ?>
         <!-- Page Title -->
@@ -9,6 +16,10 @@ $products = DB::query('SELECT * FROM product')->fetchAll();
 				<div class="row">
 					<div class="col-md-12">
 						<h1>Ons aanbod</h1>
+                        <form>
+                            <input type="checkbox" name="sort" name="sort_title"><p style="color:#adadad" onclick="changesort(0)">Sorteer op titel</p>
+                            <input type="checkbox" name="sort" name="sort_price"><p style="color:#adadad" onclick="changesort(1)">Sorteer op prijs</p>
+                        </form>
 					</div>
 				</div>
 			</div>
