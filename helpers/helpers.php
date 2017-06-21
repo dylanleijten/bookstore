@@ -20,3 +20,7 @@ function email_exists($email) {
 function old($key) {
 	return isset($_POST[$key]) ? $_POST[$key] : '';
 }
+
+function active($page) {
+	return ($_GET['p'] == $page) ? 'active' : '';
+}

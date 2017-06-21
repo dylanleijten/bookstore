@@ -25,18 +25,18 @@ class DB {
         return self::$static_db;
     }
 
-    public function fetchAll()
+    public function fetchAll($type = PDO::FETCH_OBJ)
     {
         $this->exec();
 
-        return $this->query->fetchAll(PDO::FETCH_OBJ);
+        return $this->query->fetchAll($type);
     }
 
-    public function fetch()
+    public function fetch($type = PDO::FETCH_OBJ)
     {
         $this->exec();
 
-        return $this->query->fetch(PDO::FETCH_OBJ);
+        return $this->query->fetch($type);
     }
 
     public function exec()

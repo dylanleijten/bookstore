@@ -1,8 +1,33 @@
 <?php
 
 
+$errors = [];
+
+
 if(isset($_POST['login'])) {
-	echo '<h1>hja</h1>';
+
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+
+
+	$user  = DB::query('SELECT * FROM klant WHERE email = ?')->bind($email)->fetch();
+
+	if(!$user)
+		$errors[] = "Dit email is niet bij ons bekend";
+
+	if(!count($errors)) {
+		if(password_verify($password, $user->password)) {
+
+			$success = true;
+			Session::set('user', $user);
+
+		} else {
+			$errors[] = "Je wachtwoord is incorrect";
+		}
+	}
+
+	
+
 }
 
 ?>
@@ -21,15 +46,27 @@ if(isset($_POST['login'])) {
 	    	<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-md-5 col-md-push-4">
+					<?php if(isset($success)): ?>
+							<div class="alert alert-success">
+								Je bent ingelogd!
+							</div>
+						<?php endif; ?>
+					<?php if(count($errors)): ?>
+							<div class="alert alert-danger">
+								<?php foreach($errors as $error): ?>
+									<p><?= $error ?></p>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
 						<div class="basic-login">
 							<form role="form" role="form" action="" method="post">
 								<div class="form-group">
 		        				 	<label for="login-username"><i class="icon-user"></i> <b>Email</b></label>
-									<input class="form-control" id="login-username" type="text" placeholder="Email">
+									<input class="form-control" name="email" id="login-username" type="text" placeholder="Email" required>
 								</div>
 								<div class="form-group">
 		        				 	<label for="login-password"><i class="icon-lock"></i> <b>Wachtwoord</b></label>
-									<input class="form-control" id="login-password" type="password" placeholder="Wachtwoord">
+									<input class="form-control" name="password" id="login-password" type="password" placeholder="Wachtwoord" required>
 								</div>
 								<div class="form-group">
 									<a href="<?= url('register') ?>" class="forgot-password">Nog geen account?</a>
