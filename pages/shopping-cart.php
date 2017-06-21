@@ -78,7 +78,8 @@ if(isset($_POST['keuze'])){
                         <form action="" method="post">
                             <select name="verzendkeuze" class="form-control input-sm">
                                 <option value="0">Standaard - Gratis</option>
-                                <option value="10.00">Wereldwijd - &euro;10.00</option>
+                                <option value="10.00">Europa - &euro;10.00</option>
+                                <option value="20.00">Wereldwijd - &euro;20.00</option>
                             </select>
                             <input type="submit" name="keuze" value="Kies Verzendoptie">
                         </form>
