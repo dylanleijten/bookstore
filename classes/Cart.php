@@ -28,7 +28,11 @@ class Cart {
     }
 
     public function update($key, $amount) {
-        array_replace($_SESSION['products'], [$key=>$amount]);
+        $_SESSION['products'][$key]->amount = $amount;
+    }
+
+    public function incrementAmount($key) {
+        $_SESSION['products'][$key]->amount++;
     }
 
     public function clear() {
@@ -37,12 +41,26 @@ class Cart {
 
     public function count() {
 
-        return Session::exists('products') ? count(Session::get('products')) : 0;
+        $amount = 0;
+
+        if(!Session::exists('products'))
+            return 0;
+
+        foreach(Session::get('products') as $product) {
+            $amount += $product->amount;
+        }
+
+        return $amount;
+
     }
 
     public function sum() {
 
+        $selected = 0;
         $sum = 0;
+        if(isset($_POST['keuze'])){
+            $selected = $_POST['verzendkeuze'];
+        }
 
         if(!Session::exists('products'))
             return $sum;
@@ -51,7 +69,7 @@ class Cart {
             $sum += ($product->price*$product->amount);
         }
 
-        return $sum;
+        return $sum + $selected;
 
     }
 

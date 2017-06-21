@@ -1,14 +1,32 @@
 <?php
 
-$products = DB::query('SELECT * FROM product')->fetchAll();
+
+//index.php?p=producs&order=asc
+
+$sql = $sql = 'SELECT * FROM product';
+$order = isset($_GET['order']) ? $_GET['order'] : 0;
+if($order === 'title'){
+    $sql = 'SELECT * FROM product ORDER BY title';
+} elseif ($order === 'price') {
+    $sql = 'SELECT * FROM product ORDER BY price';
+} else {
+    $sql = $sql = 'SELECT * FROM product';
+}
+
+$products = DB::query($sql)->fetchAll();
 
 ?>
+
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<h1>Ons aanbod</h1>
+                        <form name="sort_boxes">
+                            <input type="checkbox" name="sort" name="sort_title" onclick="javascript:window.location.href='<?= url('products') ?>&order=title'"><p style="color:#adadad">Sorteer op titel</p>
+                            <input type="checkbox" name="sort" name="sort_price" onclick="javascript:window.location.href='<?= url('products') ?>&order=price'"><p style="color:#adadad">Sorteer op prijs</p>
+                        </form>
 					</div>
 				</div>
 			</div>
@@ -61,3 +79,5 @@ $products = DB::query('SELECT * FROM product')->fetchAll();
 				</div>
 			</div>
 	    </div>
+
+

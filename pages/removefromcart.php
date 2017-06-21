@@ -5,4 +5,4 @@ $productIndex = $_GET['productIndex'];
 
 $cart->remove($productIndex);
 
-header('Location:'.url('shopping-cart'));
+redirect(url('shopping-cart'));

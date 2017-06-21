@@ -11,7 +11,7 @@
 	        				<b>Address:</b> Hogeschoollaan 1, Breda<br/>
 	        				<b>Phone:</b> +44 123 654321<br/>
 	        				<b>Fax:</b> +44 123 654321<br/>
-	        				<b>Email:</b> <a href="mailto:djamleij@avans.nl">Bookstore@avans.nl</a>
+	        				<b>Email:</b> <a href="mailto:dylanleijten@avans.nl">Bookstore@avans.nl</a>
 	        			</p>
 		    		</div>
 		    	</div>
