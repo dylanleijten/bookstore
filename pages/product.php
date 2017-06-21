@@ -1,4 +1,12 @@
+<?php
 
+$productId = $_GET['product'];
+
+$product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($productId)->fetch();
+
+$reviews = DB::query('SELECT * FROM beoordeling WHERE product_product_id = ?')->bind($product->product_id)->fetchAll();
+
+?>
         <!-- Page Title -->
 		<div class="section section-breadcrumbs">
 			<div class="container">
@@ -16,29 +24,25 @@
 	    			<!-- Product Image & Available Colors -->
 	    			<div class="col-sm-6">
 	    				<div class="product-image-large">
-	    					<img src="img/product3.jpg" alt="Item Name">
+	    					<img src="<?= $product->product_img ?>" alt="Item Name">
 	    				</div>
 	    			</div>
 	    			<!-- End Product Image -->
 	    			<!-- Product Summary & Options -->
 	    			<div class="col-sm-6 product-details">
-	    				<h4>LOREM IPSUM DOLOR</h4>
+	    				<h4><?= $product->title ?></h4>
 	    				<div class="price">
-							<span class="price-was">$959.99</span> $999.99
+							&euro; <?= $product->price ?>
 						</div>
 						<h5>Beknopte info</h5>
 	    				<p>
-	    					Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat massa ornare vitae. Ut fermentum justo vel venenatis eleifend. Fusce id magna eros.
+	    					<?=$product->info?>
 	    				</p>
-                        <form action="add.php" method="post">
 						<table class="shop-item-selections">
-                            <!-- Product Nummer -->
-                            <tr>
-                                <td>
-                                    <input type="hidden" name="productnummer" value="1">  <!-- 1 voor test -->
-                                </td>
-                            </tr>
                             <!-- Quantity -->
+                            <form action="<?= url('addtocart') ?>&product=<?=$product->product_id?>">
+                                <input type="hidden" name="p" value="addtocart">
+                                <input type="hidden" name="product" value="<?= $product->product_id ?>">
                             <tr>
                                 <td><b>Aantal:</b></td>
                                 <td>
@@ -47,14 +51,12 @@
                             </tr>
                             <!-- Add to Cart Button -->
                             <tr>
-                                <td>&nbsp;</td>
                                 <td>
-                                    <input type="submit" value="Toevoegen">
+                                    <button type="submit" class="btn"><i class="icon-shopping-cart icon-white"></i> Toevoegen</button>
                                 </td>
                             </tr>
-
+                            </form>
                         </table>
-                        </form>
 	    			</div>
 	    			<!-- End Product Summary & Options -->
 	    			
@@ -63,33 +65,29 @@
 	    				<div class="tabbable">
 	    					<!-- Tabs -->
 							<ul class="nav nav-tabs product-details-nav">
-								<li class="active"><a href="#tab1" data-toggle="tab">Beschrijving</a></li>
-								<li><a href="#tab2" data-toggle="tab">Reviews?</a></li>
+								<li class="active"><a href="#tab1" data-toggle="tab">Reviews</a></li>
 							</ul>
-							<!-- Tab Content (Full Description) -->
-							<div class="tab-content product-detail-info">
-								<div class="tab-pane active" id="tab1">
-									<h4>Product Description</h4>
-									<p>
-										Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus. Phasellus et est quis diam iaculis fringilla id nec sapien. Sed tempor ornare felis, non vulputate dolor. Etiam ornare diam vitae ligula malesuada tempor. Vestibulum nec odio vel libero ullamcorper euismod et in sapien. Suspendisse potenti.
-									</p>
-									<h4>Product Highlights</h4>
-									<ul>
-										<li>Nullam dictum augue nec iaculis rhoncus. Aenean lobortis fringilla orci, vitae varius purus eleifend vitae.</li>
-										<li>Nunc ornare, dolor a ultrices ultricies, magna dolor convallis enim, sed volutpat quam sem sed tellus.</li>
-										<li>Aliquam malesuada cursus urna a rutrum. Ut ultricies facilisis suscipit.</li>
-										<li>Duis a magna iaculis, aliquam metus in, luctus eros.</li>
-										<li>Aenean nisi nibh, imperdiet sit amet eleifend et, gravida vitae sem.</li>
-										<li>Donec quis nisi congue, ultricies massa ut, bibendum velit.</li>
-									</ul>
-									<h4>Usage Information</h4>
-									<p>
-										Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus. Phasellus et est quis diam iaculis fringilla id nec sapien. Sed tempor ornare felis, non vulputate dolor. Etiam ornare diam vitae ligula malesuada tempor. Vestibulum nec odio vel libero ullamcorper euismod et in sapien. Suspendisse potenti.
-									</p>
-								</div>
 								<!-- Tab Content (Reviews) -->
-								<div class="tab-pane" id="tab2">
+								<div class="tab-pane" id="tab1">
                                     <h4>Wat zeggen onze gebruikers?</h4>
+                                    <p><?php foreach($reviews as $review): ?>
+                                         <p>Bericht:<br><?= $review->review ?> </p>
+                                    <?php endforeach; ?></p>
+                                    
+                                    
+                                    <form action="product.php" method="post" accept-charset="utf-8">
+                                <fieldset>	
+                                <p><label for="rating">beoordeling</label><input type="radio" name="rating"
+                                  value="5" /> 5 <input type="radio" name="rating" value="4" /> 4
+                                  <input type="radio" name="rating" value="3" /> 3 <input type="radio"
+                                  name="rating" value="2" /> 2 <input type="radio" name="rating" value="1" /> 1</p>
+                                <p><label for="review">Bericht</label><textarea name="review" rows="8" cols="40">
+                                   </textarea></p>
+                                <p><input type="submit" value="Plaats bericht"></p>
+                                <input type="hidden" name="product_type" value="actual_product_type" id="product_type">
+                                <input type="hidden" name="product_id" value="actual_product_id" id="product_id">
+                            </fieldset>
+                            </form>
 								</div>
 							</div>
 						</div>
