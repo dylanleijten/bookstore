@@ -6,7 +6,7 @@ $products = $cart->getProducts();
 
 $productId = $_GET['product'];
 
-$amount = $_GET['hoeveelheid'];
+$amount = isset($_GET['hoeveelheid']) ? $_GET['hoeveelheid'] : 1;
 
 $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($productId)->fetch();
 

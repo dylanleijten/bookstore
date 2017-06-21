@@ -45,20 +45,26 @@
         
 								</div>
 							</li>
-			        		<li><a href="<?= url('login') ?>">Inloggen</a></li>
+			        		<li>
+								<?php if(!User::auth()): ?>
+									<a href="<?= url('login') ?>">Inloggen</a>
+								<?php else: ?>
+									<a href="<?= url('uitloggen') ?>">Uitloggen</a>
+								<?php endif; ?>
+							</li>
 			        	</ul>
 					</div>
 		        </div>
 		        <nav id="mainmenu" class="mainmenu">
 					<ul>
 						<li class="logo-wrapper"><a href="<?= url('products') ?>"><h3>BookStore</h3></li>
-						<li>
+						<li class="<?= active('index') ?>">
 							<a href="<?= url('index') ?>">Home</a>
 						</li>
-						<li>
+						<li class="<?= active('products') ?>">
 							<a href="<?= url('products') ?>">Producten</a>
 						</li>
-						<li class="has-submenu active">
+						<li class="has-submenu">
 							<a href="#">Pagina's</a>
 							<div class="mainmenu-submenu">
 								<div class="mainmenu-submenu-inner"> 

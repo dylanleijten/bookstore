@@ -21,6 +21,22 @@ class User {
 
     public function __construct() {
         $this->cart = new Cart();
+
+        if($this->auth())
+            $this->set();
+    }
+
+    public function auth() {
+        return Session::exists('user');
+    }
+
+    private function set() {
+
+        foreach(Session::get('user') as $property => $value) {
+            $this->{$property} = $value;
+        }
+
+
     }
 
 }
