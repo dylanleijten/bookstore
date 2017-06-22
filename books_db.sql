@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Gegenereerd op: 21 jun 2017 om 11:39
+-- Gegenereerd op: 22 jun 2017 om 08:45
 -- Serverversie: 10.1.16-MariaDB
 -- PHP-versie: 5.6.24
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bookstore`
+-- Database: `books_db`
 --
 
 -- --------------------------------------------------------
@@ -36,8 +36,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
-(1, 'Informatica'),
-(2, 'Computer');
+(1, 'Informatico'),
+(2, 'Computers'),
+(3, 'Hardware'),
+(4, 'Computer Networks');
 
 -- --------------------------------------------------------
 
@@ -117,7 +119,13 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `isbn`, `title`, `author`, `edition`, `release_date`, `product_img`, `stock`, `publisher_id`, `price`) VALUES
-(14, 134291255, 'PHP', 'Larry Ullman', 2, '2017-05-09', 'product.jpg', 20, 1, 32);
+(14, 134291255, 'PHP', 'Larry Ullman', 2, '2017-05-09', 'product.jpg', 20, 1, 32),
+(18, 2147483647, 'Murach''s PHP & MySQL', ' Joel Murach', 2, '2014-02-05', NULL, 7, 1, 49.5),
+(19, 2147483647, 'Test', 'test', 2, '2017-06-02', NULL, 5, 2, 50),
+(21, 2147483647, 'Computer Networks', ' Andrew Tanenbaum', 4, '2002-06-25', NULL, 2, 3, 14),
+(22, 2147483647, 'PHP for Absolute Beginner', 'Jason Lengstorf', 2, '2014-08-03', 'php-absolute.jpg', 3, 2, 31.99),
+(23, 2147483647, 'Learning PHP, MySQL & JavaScript', 'Robin Nixon', 3, '2014-03-02', 'robinson.jpg', 8, 1, 34.99),
+(24, 2147483647, 'Learning PHP', 'David Sklar', 2, '2015-01-01', 'learnphp.jpg', 14, 1, 29.99);
 
 -- --------------------------------------------------------
 
@@ -127,8 +135,20 @@ INSERT INTO `product` (`product_id`, `isbn`, `title`, `author`, `edition`, `rele
 
 CREATE TABLE `product_has_category` (
   `product_id` int(11) NOT NULL,
-  `category_category_id` int(11) NOT NULL
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `product_has_category`
+--
+
+INSERT INTO `product_has_category` (`product_id`, `category_id`) VALUES
+(14, 1),
+(19, 1),
+(21, 4),
+(22, 1),
+(23, 1),
+(24, 2);
 
 -- --------------------------------------------------------
 
@@ -160,7 +180,8 @@ CREATE TABLE `publisher` (
 
 INSERT INTO `publisher` (`publisher_id`, `publisher`) VALUES
 (1, 'O'' Reilly'),
-(2, 'Apress');
+(2, 'Apress'),
+(3, 'Prentice Hall');
 
 -- --------------------------------------------------------
 
@@ -233,8 +254,8 @@ ALTER TABLE `product`
 -- Indexen voor tabel `product_has_category`
 --
 ALTER TABLE `product_has_category`
-  ADD PRIMARY KEY (`product_id`,`category_category_id`),
-  ADD KEY `fk_product_has_category_category1_idx` (`category_category_id`),
+  ADD PRIMARY KEY (`product_id`,`category_id`),
+  ADD KEY `fk_product_has_category_category1_idx` (`category_id`),
   ADD KEY `fk_product_has_category_product1_idx` (`product_id`);
 
 --
@@ -274,7 +295,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT voor een tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT voor een tabel `klant`
 --
@@ -294,7 +315,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT voor een tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT voor een tabel `product_order`
 --
@@ -304,7 +325,7 @@ ALTER TABLE `product_order`
 -- AUTO_INCREMENT voor een tabel `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `publisher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `publisher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT voor een tabel `rating`
 --
@@ -342,7 +363,7 @@ ALTER TABLE `product`
 -- Beperkingen voor tabel `product_has_category`
 --
 ALTER TABLE `product_has_category`
-  ADD CONSTRAINT `fk_product_has_category_category1` FOREIGN KEY (`category_category_id`) REFERENCES `category` (`category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_product_has_category_category1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_product_has_category_product1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
