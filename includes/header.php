@@ -75,7 +75,7 @@
 										</ul>
 									</div>
 									<div>
-										<h4>General Pages</h4>
+										<h4>Algemene Pagina's</h4>
 										<ul>
 											<li><a href="<?= url('contact') ?>">Contact Us</a></li>
 											<li><a href="<?= url('register') ?>">Login</a></li>
