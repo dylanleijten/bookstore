@@ -24,6 +24,4 @@ if(!$itemIncremented) {
     $cart->addProduct($product, $amount);
 }
 
-var_dump($amount);
-
 redirect(url('shopping-cart'));
