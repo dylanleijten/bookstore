@@ -15,7 +15,7 @@ $product = DB::query('SELECT * FROM product WHERE product_id = ?')->bind($produc
 foreach (Session::get('products') as $key => $entry) {
 
         if($entry->product_id === $product->product_id) {
-            $cart->incrementAmount($key);
+            $cart->incrementAmount($key, $amount);
             $itemIncremented = true;
         }
 }
@@ -23,5 +23,7 @@ foreach (Session::get('products') as $key => $entry) {
 if(!$itemIncremented) {
     $cart->addProduct($product, $amount);
 }
+
+var_dump($amount);
 
 redirect(url('shopping-cart'));

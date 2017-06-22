@@ -31,8 +31,8 @@ class Cart {
         $_SESSION['products'][$key]->amount = $amount;
     }
 
-    public function incrementAmount($key) {
-        $_SESSION['products'][$key]->amount++;
+    public function incrementAmount($key, $amount) {
+        $_SESSION['products'][$key]->amount+=$amount;
     }
 
     public function clear() {
