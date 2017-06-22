@@ -15,6 +15,11 @@ if($order === 'title'){
 
 $products = DB::query($sql)->fetchAll();
 
+if(isset($_POST['search'])) {
+	$title = $_POST['title'];
+
+}
+
 ?>
 
         <!-- Page Title -->
@@ -27,6 +32,13 @@ $products = DB::query($sql)->fetchAll();
                             <input type="checkbox" name="sort" name="sort_title" onclick="javascript:window.location.href='<?= url('products') ?>&order=title'"><p style="color:#adadad">Sorteer op titel</p>
                             <input type="checkbox" name="sort" name="sort_price" onclick="javascript:window.location.href='<?= url('products') ?>&order=price'"><p style="color:#adadad">Sorteer op prijs</p>
                         </form>
+
+						<form method="POST" action="">
+							<h1>Zoeken op titel</h1><br>
+							<input name="title" placeholder="Titel" type="text" class="form-control" required><br>
+							<button name="search" style="width:150px;" class="form-control" type="submit">Zoeken</button>
+						</form>
+
 					</div>
 				</div>
 			</div>
