@@ -6,9 +6,9 @@
 
 		    		
 		    		<div class="col-footer col-md-4 col-xs-6">
-		    			<h3>Contacts</h3>
+		    			<h3>Contact</h3>
 		    			<p class="contact-us-details">
-	        				<b>Addres:</b> Hogeschoollaan 1, Breda<br/>
+	        				<b>Adres:</b> Hogeschoollaan 1, Breda<br/>
 	        				<b>Telefoon:</b> +44 123 654321<br/>
 	        				<b>Fax:</b> +44 123 654321<br/>
 	        				<b>Email:</b> <a href="mailto:dylanleijten@avans.nl">Bookstore@avans.nl</a>
