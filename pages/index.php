@@ -120,10 +120,10 @@
 						<div class="testimonial-bubble">
 							<blockquote>
 								<p class="quote">
-		                            "Ik hou heel erg van Strip(pen)boeken, hentai, manga het maakt me niet uit. Bookstore heeft het!"
+		                            "Dit is mijn beste en goedkoopste bron van boeken voor het leren van programmeren. Super service!"
                         		</p>
                         		<cite class="author-info">
-                        			- Ralph Comanne,<br>Houdt van Hentai en Manga
+                        			- Ralph Comanne,<br>Onze beste klant
                         		</cite>
                         	</blockquote>
                         	<div class="sprite arrow-speech-bubble"></div>
