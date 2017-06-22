@@ -77,7 +77,6 @@
 									<div>
 										<h4>General Pages</h4>
 										<ul>
-											<li><a href="page-about-us.html">About Us</a></li>
 											<li><a href="<?= url('contact') ?>">Contact Us</a></li>
 											<li><a href="<?= url('register') ?>">Login</a></li>
 											<li><a href="<?= url('register') ?>">Register</a></li>

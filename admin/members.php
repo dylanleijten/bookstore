@@ -259,7 +259,7 @@ if(isset($_SESSION['username'])) {
 		 	$userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) : 0;
             
             // Select all data depend on this id
-            $sql = "SELECT * FROM users WHERE user_id = :user_id";
+            $sql = "SELECT * FROM klant WHERE klant_id = :user_id";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':user_id', $userid);
             $stmt->execute(); 
@@ -285,7 +285,8 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="password" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="password form-control" type="password" name="password" id="password" autocomplete="new-password" required="required" placeholder="">
+								<input type="hidden" name="oldpassword" value="<?php echo $row['password']; ?>">
+								<input class="form-control" type="password" name="newpassword" id="password" autocomplete="new-password" placeholder="Leave blank if you dont want to change">
 								<i class="show-pass fa fa-eye fa-lg"></i>
 							</div>
 						</div>
@@ -294,7 +295,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="email" class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="email" name="email" id="email" required="required" placeholder="">
+								<input class="form-control" type="email" name="email" value="<?php echo $row['email']; ?>" id="email" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Email Field -->
@@ -302,7 +303,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">Full Name</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="fullname" id="fullname" required="required" placeholder="">
+								<input class="form-control" type="text" name="fullname" value="<?php echo $row['full_name']; ?>" id="fullname" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Fullname Field -->
@@ -310,7 +311,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">Phone Number</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="tel" name="phone" id="phone" required="required" placeholder="">
+								<input class="form-control" type="tel" name="phone" value="<?php echo $row['phone_number']; ?>" id="phone" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Phone Field -->
@@ -318,7 +319,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">Street</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="street" id="street" required="required" placeholder="">
+								<input class="form-control" type="text" name="street" value="<?php echo $row['street']; ?>" id="street" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Street Field -->
@@ -326,7 +327,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">House Number</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="house_number" id="house_number" required="required" placeholder="">
+								<input class="form-control" type="text" name="house_number" value="<?php echo $row['house_number']; ?>" id="house_number" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End House Field -->
@@ -334,7 +335,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">Zip Code</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="zip_code" id="zip_code" required="required" placeholder="">
+								<input class="form-control" type="text" name="zip_code" value="<?php echo $row['zip_code']; ?>" id="zip_code" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Zip Field -->
@@ -342,7 +343,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">City</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="city" id="city" required="required" placeholder="">
+								<input class="form-control" type="text" name="city" value="<?php echo $row['city']; ?>" id="city" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End city Field -->
@@ -350,7 +351,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">Country</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="country" id="country" required="required" placeholder="">
+								<input class="form-control" type="text" name="country" value="<?php echo $row['country']; ?>" id="country" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Country Field -->
@@ -381,13 +382,15 @@ if(isset($_SESSION['username'])) {
 		 		// Get variables from the form
 		 		$id 		  = $_POST['userid'];
 		 		$username 	  = $_POST['username'];
+		 		$password     = $_POST['newpassword'];
 		 		$email 		  = $_POST['email'];
 		 		$fullname 	  = $_POST['fullname'];
+		 		$phone        = $_POST['phone'];
+		 		$street       = $_POST['street'];
 		 		$house_number = $_POST['house_number'];
 		 		$zip_code	  = $_POST['zip_code'];
 		 		$city         = $_POST['city'];
 		 		$country      = $_POST['country'];
-
 		 		// Password Edit 
 		 		 $pass = empty($_POST['newpassword']) ? $_POST['oldpassword'] : sha1($_POST['newpassword']);
 
@@ -423,19 +426,16 @@ if(isset($_SESSION['username'])) {
 		 	     if (empty($formErrors)) { 
 
 			 		// Update the database with this info
-			 		$sql = "UPDATE users SET username = :username, email = :email, full_name = :fullname, password = :password WHERE user_id = :user_id";
+			 		$sql = "UPDATE klant SET username = ?,  password = ?, email = ?, full_name = ?, phone_number = ?, street = ?, house_number = ?, zip_code = ?, city = ?, country = ?
+			 		        WHERE klant_id = ?";
+			 		$data = array($username, $password, $email, $fullname, $phone, $street, $house_number, $zip_code, $city, $country, $id);
 			 		$stmt = $db->prepare($sql);
-			 		$stmt->bindValue(':user_id', $id);
-			 		$stmt->bindValue(':username', $username);
-			 		$stmt->bindValue(':email', $email);
-			 		$stmt->bindValue(':fullname', $fullname);
-			 		$stmt->bindValue(':password', $pass);
-			 		$stmt->execute();
+			 		$stmt->execute($data);
 			 		$stmt->closeCursor();
 
 			 		// Echo success message
 			 		$theMsg =  '<div class="alert alert-success">' . $stmt->rowCount() . ' Record Updated</div>'; 
-			 		redirectHome($theMsg, 'back');  
+			 		redirectHome($theMsg, 'members');  
 		 	   }
 		 	} else {
 		 		$theMsg = '<div class="alert alert-danger">You cant browse this page directly</div>'; 
