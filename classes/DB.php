@@ -50,6 +50,14 @@ class DB {
         return $this->query->rowCount();
     }
 
+    public static function lastInsertId()
+    {
+        if (!isset(self::$static_db))
+            self::$static_db = new DB(Config::get('database'));
+
+        return self::$static_db->db->lastInsertId();
+    }
+
     public function bind()
     {
         $values = func_get_args();

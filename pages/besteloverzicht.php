@@ -87,3 +87,6 @@ if(isset($_POST['keuze'])){
         </div>
     </div>
 </div>
+<?php
+$cart->clear();
+?>

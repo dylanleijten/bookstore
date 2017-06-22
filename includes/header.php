@@ -64,6 +64,11 @@
 						<li class="<?= active('products') ?>">
 							<a href="<?= url('products') ?>">Producten</a>
 						</li>
+                        <?php if(User::auth()): ?>
+                        <li class="<?= active('mijnbestellingen') ?>">
+                            <a href="<?= url('mijnbestellingen') ?>">Mijn bestellingen</a>
+                        </li>
+                        <?php endif; ?>
 						<li class="has-submenu">
 							<a href="#">Pagina's</a>
 							<div class="mainmenu-submenu">
