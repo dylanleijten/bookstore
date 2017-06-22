@@ -10,6 +10,16 @@ if(User::auth()) {
             VALUES(?,?,?,?) ";
     $insert = DB::query($sql)->bind($date,$quantity,$amount,$id)->exec();
 
+    $orderId = DB::lastInsertId();
+
+    foreach ($cart->getProducts() as $product) {
+        $prodid = $product->product_id;
+
+            $sql = "INSERT INTO product_order (product_id, order_id) VALUES (?, ?)";
+
+        DB::query($sql)->bind($prodid, $orderId)->exec();
+    }
+
     redirect(url('besteloverzicht'));
 } else {
     echo "<h4>Log in om te kunnen bestellen!</h4>";
