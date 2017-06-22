@@ -18,6 +18,8 @@ $products = DB::query($sql)->fetchAll();
 if(isset($_POST['search'])) {
 	$title = $_POST['title'];
 
+	$products = DB::query("SELECT * FROM product WHERE title LIKE ?")->bind("%$title%")->fetchAll();
+
 }
 
 ?>
@@ -35,7 +37,7 @@ if(isset($_POST['search'])) {
 
 						<form method="POST" action="">
 							<h1>Zoeken op titel</h1><br>
-							<input name="title" placeholder="Titel" type="text" class="form-control" required><br>
+							<input value="<?= old('title') ?>" name="title" placeholder="Titel" type="text" class="form-control" required><br>
 							<button name="search" style="width:150px;" class="form-control" type="submit">Zoeken</button>
 						</form>
 
@@ -47,6 +49,9 @@ if(isset($_POST['search'])) {
         <div class="section">
 	    	<div class="container">
 				<div class="row">
+					<?php if(isset($_POST['search'])): ?>
+						<h1><?= count($products) ?> Resultaten gevonden</h1>
+					<?php endif; ?>
 					<?php foreach($products as $product): ?>
 					<div class="col-sm-4">
 						<!-- Product -->
