@@ -176,6 +176,10 @@ body {
 	top:0px;
 	right: 3px;
 }
+
+table.product td {
+	padding: 10px 20px !important;
+}
 /* End Table Style	*/
 
 /*	Start My Custom Framework */

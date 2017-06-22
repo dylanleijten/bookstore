@@ -15,7 +15,7 @@
             <li><a href="categories.php"><?php echo lang('CATEGORIES'); ?></a></li>
             <li><a href="products.php"><?php echo lang('ITEMS'); ?></a></li>
             <li><a href="#"><?php echo lang('ORDERS'); ?></a></li>
-            <li><a href="#"><?php echo lang('MEMBERS'); ?></a></li>
+            <li><a href="members.php"><?php echo lang('MEMBERS'); ?></a></li>
             <li><a href="#"><?php echo lang('LOGS'); ?></a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

@@ -251,7 +251,7 @@ if(isset($_SESSION['username'])) {
 	} elseif ($do == 'Delete') {
 		echo '<h1 class="text-center">Delete Category</h1>';
 		 	echo '<div class="container">';
-		 	// Delete member page
+		 	// Delete Category page
 
 		 	// Check if get request userid is numeric & get the integer value of it
 		 	$cat_id = isset($_GET['cat_id']) && is_numeric($_GET['cat_id']) ? intval($_GET['cat_id']) : 0;
