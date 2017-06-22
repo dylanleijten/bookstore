@@ -236,12 +236,12 @@ if(isset($_SESSION['username'])) {
 				 		$sql = "INSERT INTO klant (username, password, email, full_name, phone_number, street, house_number, zip_code, city, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				 		$stmt = $db->prepare($sql);
 				 		$data = array($username, $password, $email, $fullname, $phone, $street, $house_number, $zip_code, $city, $country);
-				 		$stmt->execute();
+				 		$stmt->execute($data);
 				 		$stmt->closeCursor();
 
 				 		// Echo success message
 				 		 $theMsg = '<div class="alert alert-success">' . $stmt->rowCount() . ' Record Inserted</div>';   
-				 		 redirectHome($theMsg, 'back');
+				 		 redirectHome($theMsg, 'members');
 			 		 } 	 
 				}
 			} else {
@@ -271,13 +271,13 @@ if(isset($_SESSION['username'])) {
 
 				<h1 class="text-center">Edit Member</h1>
 				<div class="container">
-					<form class="form-horizontal" action="?do=Update" method="POST">
-						<input type="hidden" name="userid" value="<?php echo $userid; ?>">
+					<form class="form-horizontal" action="?do=Update" method="POST"> 
+					<input type="hidden" name="userid" value="<?php echo $userid; ?>">
 						<!-- Start Username Field -->
 						<div class="form-group form-group-lg">
 							<label for="username" class="col-sm-2 control-label">Username</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="username" value="<?php echo $row['username']; ?>" id="username" autocomplete="off" required="required">
+								<input class="form-control" type="text" name="username" value="<?php echo $row['username']; ?>" id="username" autocomplete="off" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Username Field -->
@@ -285,8 +285,8 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="password" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10 col-md-6">
-								<input type="hidden" name="oldpassword" value="<?php echo $row['password']; ?>">
-								<input class="form-control" type="password" name="newpassword" id="password" autocomplete="new-password" placeholder="Leave blank if you dont want to change">
+								<input class="password form-control" type="password" name="password" id="password" autocomplete="new-password" required="required" placeholder="">
+								<i class="show-pass fa fa-eye fa-lg"></i>
 							</div>
 						</div>
 						<!-- End Password Field -->
@@ -294,7 +294,7 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="email" class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="email" name="email" value="<?php echo $row['email']; ?>" id="email" required="required">
+								<input class="form-control" type="email" name="email" id="email" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Email Field -->
@@ -302,14 +302,62 @@ if(isset($_SESSION['username'])) {
 						<div class="form-group form-group-lg">
 							<label for="fullname" class="col-sm-2 control-label">Full Name</label>
 							<div class="col-sm-10 col-md-6">
-								<input class="form-control" type="text" name="fullname" value="<?php echo $row['full_name']; ?>" id="fullname" required="required">
+								<input class="form-control" type="text" name="fullname" id="fullname" required="required" placeholder="">
 							</div>
 						</div>
 						<!-- End Fullname Field -->
+						<!-- Start Phone Field -->
+						<div class="form-group form-group-lg">
+							<label for="fullname" class="col-sm-2 control-label">Phone Number</label>
+							<div class="col-sm-10 col-md-6">
+								<input class="form-control" type="tel" name="phone" id="phone" required="required" placeholder="">
+							</div>
+						</div>
+						<!-- End Phone Field -->
+						<!-- Start Street Field -->
+						<div class="form-group form-group-lg">
+							<label for="fullname" class="col-sm-2 control-label">Street</label>
+							<div class="col-sm-10 col-md-6">
+								<input class="form-control" type="text" name="street" id="street" required="required" placeholder="">
+							</div>
+						</div>
+						<!-- End Street Field -->
+						<!-- Start House Field -->
+						<div class="form-group form-group-lg">
+							<label for="fullname" class="col-sm-2 control-label">House Number</label>
+							<div class="col-sm-10 col-md-6">
+								<input class="form-control" type="text" name="house_number" id="house_number" required="required" placeholder="">
+							</div>
+						</div>
+						<!-- End House Field -->
+						<!-- Start Zip Field -->
+						<div class="form-group form-group-lg">
+							<label for="fullname" class="col-sm-2 control-label">Zip Code</label>
+							<div class="col-sm-10 col-md-6">
+								<input class="form-control" type="text" name="zip_code" id="zip_code" required="required" placeholder="">
+							</div>
+						</div>
+						<!-- End Zip Field -->
+						<!-- Start city Field -->
+						<div class="form-group form-group-lg">
+							<label for="fullname" class="col-sm-2 control-label">City</label>
+							<div class="col-sm-10 col-md-6">
+								<input class="form-control" type="text" name="city" id="city" required="required" placeholder="">
+							</div>
+						</div>
+						<!-- End city Field -->
+						<!-- Start Country Field -->
+						<div class="form-group form-group-lg">
+							<label for="fullname" class="col-sm-2 control-label">Country</label>
+							<div class="col-sm-10 col-md-6">
+								<input class="form-control" type="text" name="country" id="country" required="required" placeholder="">
+							</div>
+						</div>
+						<!-- End Country Field -->
 						<!-- Start Submit Field -->
 						<div class="form-group form-group-lg">
 							<div class="col-sm-offset-2 col-sm-10">
-								<input class="btn btn-success btn-lg" type="submit" value="Save">
+								<input class="btn btn-warning btn-lg" type="submit" value="Add Member">
 							</div>
 						</div>
 						<!-- End Submit Field -->
@@ -404,8 +452,8 @@ if(isset($_SESSION['username'])) {
             
             // Select all data depend on this id
             
-		 	if (checkItem('user_id', 'users', $userid)) {
-			 	$sql = "DELETE FROM users WHERE user_id = :user_id";
+		 	if (checkItem('klant_id', 'klant', $userid)) {
+			 	$sql = "DELETE FROM klant WHERE klant_id = :user_id";
 			 	$stmt = $db->prepare($sql);
 			 	$stmt->bindValue(':user_id', $userid);
 			 	$stmt->execute();

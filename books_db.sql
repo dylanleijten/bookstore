@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Gegenereerd op: 22 jun 2017 om 08:45
+-- Gegenereerd op: 22 jun 2017 om 11:23
 -- Serverversie: 10.1.16-MariaDB
 -- PHP-versie: 5.6.24
 
@@ -59,7 +59,7 @@ CREATE TABLE `klant` (
   `zip_code` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `country` varchar(45) DEFAULT NULL,
-  `group_id` varchar(45) DEFAULT '0'
+  `group_id` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -67,7 +67,9 @@ CREATE TABLE `klant` (
 --
 
 INSERT INTO `klant` (`klant_id`, `username`, `password`, `email`, `full_name`, `phone_number`, `street`, `house_number`, `zip_code`, `city`, `country`, `group_id`) VALUES
-(1, 'Sami', '601f1889667efaebb33b8c12572835da3f027f78', 'sami@mail.com', 'Sami Sami', 6545353, 'straat', '33', '3245 FL', 'Breda', 'Nederland', '1');
+(1, 'Sami', '601f1889667efaebb33b8c12572835da3f027f78', 'sami@mail.com', 'Sami Sami', 6545353, 'straat', '33', '3245 FL', 'Breda', 'Nederland', 1),
+(2, 'Dyli', '123456', 'dyli@mail.com', 'Dylan Dylan', 63453452, 'wegstraat', '32', '2233 LN', 'Den Haag', 'Nederland', 0),
+(3, 'Ralphi', '123321', 'rali@mail.com', 'Ralph Ralph', 640542341, 'landstraat', '76', '4030 KN', 'Leiden', 'Nederland', 0);
 
 -- --------------------------------------------------------
 
@@ -295,12 +297,12 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT voor een tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT voor een tabel `klant`
 --
 ALTER TABLE `klant`
-  MODIFY `klant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `klant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT voor een tabel `klant_fav`
 --
