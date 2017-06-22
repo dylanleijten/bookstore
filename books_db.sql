@@ -71,6 +71,9 @@ INSERT INTO `klant` (`klant_id`, `username`, `password`, `email`, `full_name`, `
 (2, 'Dyli', '123456', 'dyli@mail.com', 'Dylan Dylan', 63453452, 'wegstraat', '32', '2233 LN', 'Den Haag', 'Nederland', 0),
 (3, 'Ralphi', '123321', 'rali@mail.com', 'Ralph Ralph', 640542341, 'landstraat', '76', '4030 KN', 'Leiden', 'Nederland', 0);
 
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -303,6 +306,10 @@ ALTER TABLE `category`
 --
 ALTER TABLE `klant`
   MODIFY `klant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+
+ALTER TABLE `klant`
+  MODIFY `klant_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT voor een tabel `klant_fav`
 --
