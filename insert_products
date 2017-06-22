@@ -1,0 +1,9 @@
+
+INSERT INTO `product` (`isbn`, `title`, `author`, `edition`, `release_date`, `product_img`, `stock`, `uitgever_publisher_id`, `price`)
+                                                                                                                   VALUES
+                                                                                                                   ('0134291255', 'PHP', 'Larry Ullman', '5', '2016-01-01', 'layout/img/product1.jpg', '3', '1', '29.99'),
+                                                                                                                   ('0134291255', 'PHP for the Web', 'Larry Ullman', '5', '2016-01-01', 'layout/img/product2.jpg', '3', '1', '19.99'),
+                                                                                                                   ('0134245623', 'PhP: Learn PHP Programming Quick & Easy', 'Troy Dimes', '1', '2016-01-01', 'layout/img/product3.jpg', '3', '1', '19.99'),
+                                                                                                                   ('0132350882', 'Clean Code', 'Robert C. Martin', '1', '2014-01-01', 'layout/img/product4.jpg', '3', '1', '34.99'),
+                                                                                                                   ('0132350882', 'The Clean Coder', 'Robert C. Martin', '1', '2014-01-01', 'layout/img/product5.jpg', '3', '1', '34.99'),
+                                                                                                                   ('0596009208', 'Head First Java', 'Kathy Sierra', '2', '2016-01-01', 'layout/img/product6.jpg', '3', '1', '29.99');
