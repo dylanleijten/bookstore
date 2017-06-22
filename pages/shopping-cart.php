@@ -25,7 +25,7 @@ if(isset($_POST['keuze'])){
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="<?=url('removeall')?>" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> LEEGMAKEN</a>
-                    <a href="<?=url('checkout')?>" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
+                    <a href="<?=url('processorder')?>" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@ if(isset($_POST['keuze'])){
                 <!-- Action Buttons -->
                 <div class="pull-right">
                     <a href="<?= url('removeall')?>" class="btn btn-grey"><i class="glyphicon glyphicon-refresh"></i> LEEGMAKEN</a>
-                    <a href="<?= url('bedankt')?>" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
+                    <a href="<?= url('processorder')?>" class="btn"><i class="glyphicon glyphicon-shopping-cart icon-white"></i> AFREKENEN</a>
                 </div>
             </div>
         </div>

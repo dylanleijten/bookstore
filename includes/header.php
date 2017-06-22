@@ -78,13 +78,9 @@
 										<h4>General Pages</h4>
 										<ul>
 											<li><a href="page-about-us.html">About Us</a></li>
-											<li><a href="page-contact-us.html">Contact Us</a></li>
-											<li><a href="page-faq.html">Frequently Asked Questions</a></li>
-											<li><a href="page-404.html">404 Page</a></li>
-											<li><a href="page-sitemap.html">Sitemap</a></li>
+											<li><a href="<?= url('contact') ?>">Contact Us</a></li>
 											<li><a href="<?= url('register') ?>">Login</a></li>
 											<li><a href="<?= url('register') ?>">Register</a></li>
-											<li><a href="page-password-reset.html">Password Reset</a></li>
 											<li><a href="<?=url('privacy_verzend')?>">Privacy & Verzendvoorwaarden</a></li>
 										</ul>
 									</div>
